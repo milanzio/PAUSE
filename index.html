@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Breathe</title>
+    <title>Pause the Noise</title>
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
         body {
@@ -66,6 +66,19 @@
             100% { transform: scale(1); opacity: 1; }
         }
 
+        .breathing-text {
+            margin-top: 20px;
+            font-size: 1.5rem;
+            font-weight: 400;
+            opacity: 0.8;
+            animation: breathe-text 8s infinite ease-in-out;
+        }
+
+        @keyframes breathe-text {
+            0%, 100% { content: "Inhale"; }
+            50% { content: "Exhale"; }
+        }
+
         .music-icon {
             margin-top: 20px;
             cursor: pointer;
@@ -78,12 +91,13 @@
     </style>
 </head>
 <body>
-    <h1>Breathe</h1>
+    <h1>Pause the Noise</h1>
     <div class="breathing-container">
         <div class="circle"></div>
         <div class="circle"></div>
         <div class="circle"></div>
     </div>
+    <div class="breathing-text">Inhale</div>
     <div class="music-icon">
         <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/Music.svg/1024px-Music.svg.png" alt="Music Icon">
         <iframe width="0" height="0" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/318664920&auto_play=true&hide_related=true&show_comments=false&show_user=false&show_reposts=false&visual=false" frameborder="no" scrolling="no"></iframe>
