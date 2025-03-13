@@ -21,7 +21,7 @@
         h1 {
             font-size: 5rem;
             font-weight: bold;
-            margin-bottom: 100px;
+            margin-bottom: 120px;
             letter-spacing: 3px;
         }
 
@@ -67,14 +67,14 @@
         }
 
         .breathing-text {
-            margin-top: 50px;
-            font-size: 2rem;
-            font-weight: 400;
+            margin-top: 80px;
+            font-size: 3rem;
+            font-weight: 700;
             opacity: 0.8;
         }
 
         .music-icon {
-            margin-top: 50px;
+            margin-top: 80px;
             cursor: pointer;
         }
 
@@ -113,12 +113,11 @@
 
         function updateBreathText() {
             let breathText = document.getElementById("breath-text");
-            let circles = document.querySelector(".breathing-container");
-            let isInhaling = true;
+            let isInhaling = false;
 
             setInterval(() => {
-                breathText.textContent = isInhaling ? "Exhale" : "Inhale";
                 isInhaling = !isInhaling;
+                breathText.textContent = isInhaling ? "Inhale" : "Exhale";
             }, 4000);
         }
         
