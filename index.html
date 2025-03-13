@@ -97,7 +97,7 @@
         <img src="https://upload.wikimedia.org/wikipedia/commons/4/4f/Musical-note.svg" alt="Music Icon">
     </div>
     <audio id="meditation-music" loop>
-        <source src="https://www.fesliyanstudios.com/play-mp3/7635" type="audio/mpeg">
+        <source src="https://cdn.pixabay.com/download/audio/2023/03/06/audio_c90d6c9b58.mp3?filename=meditation-music-289149.mp3" type="audio/mpeg">
         Il tuo browser non supporta l'audio.
     </audio>
     
@@ -113,9 +113,9 @@
 
         function updateBreathText() {
             let breathText = document.getElementById("breath-text");
-            let isInhale = true;
+            let isInhale = false;
             setInterval(() => {
-                breathText.textContent = isInhale ? "Exhale" : "Inhale";
+                breathText.textContent = isInhale ? "Inhale" : "Exhale";
                 isInhale = !isInhale;
             }, 4000);
         }
