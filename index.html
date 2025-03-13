@@ -92,7 +92,7 @@
         <div class="circle"></div>
         <div class="circle"></div>
     </div>
-    <div class="breathing-text" id="breath-text">Inhale</div>
+    <div class="breathing-text" id="breath-text">Exhale</div>
     <div class="music-icon" onclick="toggleMusic()">
         <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/Music.svg/1024px-Music.svg.png" alt="Music Icon">
     </div>
@@ -113,13 +113,14 @@
 
         function updateBreathText() {
             let breathText = document.getElementById("breath-text");
-            let isInhale = true;
+            let isInhale = false;
             setInterval(() => {
-                breathText.textContent = isInhale ? "Inhale" : "Exhale";
+                breathText.textContent = isInhale ? "Exhale" : "Inhale";
                 isInhale = !isInhale;
             }, 4000);
         }
         
         updateBreathText();
     </script>
-</body
+</body>
+</html>
