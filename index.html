@@ -83,10 +83,6 @@
             width: 40px;
             height: 40px;
         }
-
-        .hidden {
-            display: none;
-        }
     </style>
 </head>
 <body>
@@ -96,21 +92,34 @@
         <div class="circle"></div>
         <div class="circle"></div>
     </div>
-    <div class="breathing-text">Inhale</div>
+    <div class="breathing-text" id="breath-text">Inhale</div>
     <div class="music-icon" onclick="toggleMusic()">
         <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/Music.svg/1024px-Music.svg.png" alt="Music Icon">
     </div>
-    <iframe id="music-frame" class="hidden" width="300" height="150" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/318664920&auto_play=false&hide_related=true&show_comments=false&show_user=false&show_reposts=false&visual=false" frameborder="no" scrolling="no"></iframe>
-
+    <audio id="meditation-music" loop>
+        <source src="https://www.fesliyanstudios.com/play-mp3/7635" type="audio/mpeg">
+        Il tuo browser non supporta l'audio.
+    </audio>
+    
     <script>
         function toggleMusic() {
-            let musicFrame = document.getElementById("music-frame");
-            if (musicFrame.classList.contains("hidden")) {
-                musicFrame.classList.remove("hidden");
+            let audio = document.getElementById("meditation-music");
+            if (audio.paused) {
+                audio.play();
             } else {
-                musicFrame.classList.add("hidden");
+                audio.pause();
             }
         }
+
+        function updateBreathText() {
+            let breathText = document.getElementById("breath-text");
+            let isInhale = true;
+            setInterval(() => {
+                breathText.textContent = isInhale ? "Inhale" : "Exhale";
+                isInhale = !isInhale;
+            }, 4000);
+        }
+        
+        updateBreathText();
     </script>
-</body>
-</html>
+</body
