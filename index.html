@@ -92,9 +92,9 @@
         <div class="circle"></div>
         <div class="circle"></div>
     </div>
-    <div class="breathing-text" id="breath-text">Exhale</div>
+    <div class="breathing-text" id="breath-text">Inhale</div>
     <div class="music-icon" onclick="toggleMusic()">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/Music.svg/1024px-Music.svg.png" alt="Music Icon">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/4/4f/Musical-note.svg" alt="Music Icon">
     </div>
     <audio id="meditation-music" loop>
         <source src="https://www.fesliyanstudios.com/play-mp3/7635" type="audio/mpeg">
@@ -113,7 +113,7 @@
 
         function updateBreathText() {
             let breathText = document.getElementById("breath-text");
-            let isInhale = false;
+            let isInhale = true;
             setInterval(() => {
                 breathText.textContent = isInhale ? "Exhale" : "Inhale";
                 isInhale = !isInhale;
