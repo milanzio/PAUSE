@@ -71,7 +71,6 @@
             font-size: 1.5rem;
             font-weight: 400;
             opacity: 0.8;
-            animation: breathe-text 8s infinite ease-in-out;
         }
 
         .music-icon {
@@ -79,9 +78,10 @@
             cursor: pointer;
         }
 
-        .music-icon img {
+        .music-icon svg {
             width: 40px;
             height: 40px;
+            fill: white;
         }
     </style>
 </head>
@@ -94,7 +94,7 @@
     </div>
     <div class="breathing-text" id="breath-text">Inhale</div>
     <div class="music-icon" onclick="toggleMusic()">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/4/4f/Musical-note.svg" alt="Music Icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 3v10.555A3.955 3.955 0 0 0 10 13c-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/></svg>
     </div>
     <audio id="meditation-music" loop>
         <source src="https://cdn.pixabay.com/download/audio/2023/03/06/audio_c90d6c9b58.mp3?filename=meditation-music-289149.mp3" type="audio/mpeg">
@@ -113,11 +113,10 @@
 
         function updateBreathText() {
             let breathText = document.getElementById("breath-text");
-            let isInhale = false;
-            setInterval(() => {
-                breathText.textContent = isInhale ? "Inhale" : "Exhale";
-                isInhale = !isInhale;
-            }, 4000);
+            let circles = document.querySelector(".breathing-container");
+            circles.addEventListener("animationiteration", () => {
+                breathText.textContent = breathText.textContent === "Inhale" ? "Exhale" : "Inhale";
+            });
         }
         
         updateBreathText();
