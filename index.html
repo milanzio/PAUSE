@@ -65,6 +65,22 @@
             50% { transform: scale(1.5); opacity: 0.6; }
             100% { transform: scale(1); opacity: 1; }
         }
+
+        button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 1.2rem;
+            border: none;
+            background-color: #E6B89C;
+            color: #2C3E50;
+            border-radius: 5px;
+            cursor: pointer;
+            font-family: 'Quicksand', sans-serif;
+        }
+
+        button:hover {
+            background-color: #F4D06F;
+        }
     </style>
 </head>
 <body>
@@ -74,9 +90,16 @@
         <div class="circle"></div>
         <div class="circle"></div>
     </div>
-    <audio autoplay loop>
+    <button onclick="playMusic()">Play Music</button>
+    <audio id="meditation-music" loop>
         <source src="https://www.fesliyanstudios.com/play-mp3/387" type="audio/mpeg">
         Il tuo browser non supporta l'audio.
     </audio>
+    <script>
+        function playMusic() {
+            let audio = document.getElementById("meditation-music");
+            audio.play();
+        }
+    </script>
 </body>
 </html>
