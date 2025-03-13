@@ -74,11 +74,6 @@
             animation: breathe-text 8s infinite ease-in-out;
         }
 
-        @keyframes breathe-text {
-            0%, 100% { content: "Inhale"; }
-            50% { content: "Exhale"; }
-        }
-
         .music-icon {
             margin-top: 20px;
             cursor: pointer;
@@ -87,6 +82,10 @@
         .music-icon img {
             width: 40px;
             height: 40px;
+        }
+
+        .hidden {
+            display: none;
         }
     </style>
 </head>
@@ -98,9 +97,20 @@
         <div class="circle"></div>
     </div>
     <div class="breathing-text">Inhale</div>
-    <div class="music-icon">
+    <div class="music-icon" onclick="toggleMusic()">
         <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/Music.svg/1024px-Music.svg.png" alt="Music Icon">
-        <iframe width="0" height="0" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/318664920&auto_play=true&hide_related=true&show_comments=false&show_user=false&show_reposts=false&visual=false" frameborder="no" scrolling="no"></iframe>
     </div>
+    <iframe id="music-frame" class="hidden" width="300" height="150" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/318664920&auto_play=false&hide_related=true&show_comments=false&show_user=false&show_reposts=false&visual=false" frameborder="no" scrolling="no"></iframe>
+
+    <script>
+        function toggleMusic() {
+            let musicFrame = document.getElementById("music-frame");
+            if (musicFrame.classList.contains("hidden")) {
+                musicFrame.classList.remove("hidden");
+            } else {
+                musicFrame.classList.add("hidden");
+            }
+        }
+    </script>
 </body>
 </html>
